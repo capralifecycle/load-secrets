@@ -16,7 +16,8 @@ import {
   UntagResourceCommand,
 } from "@aws-sdk/client-secrets-manager";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
-import read from "read";
+import type { Options } from "read";
+import { read } from "read";
 import type { CLIReporter } from "../cli/reporter";
 import { createReporter } from "../cli/reporter";
 
@@ -48,15 +49,8 @@ class LoadSecrets {
     return this.smClientForRegions[region];
   }
 
-  async getInput(options: read.Options): Promise<string> {
-    return new Promise<string>((resolve, reject) => {
-      read(options, (err, answer) => {
-        if (err) {
-          reject(err);
-        }
-        resolve(answer);
-      });
-    });
+  async getInput(options: Options): Promise<string> {
+    return read(options);
   }
 
   async getSecretDetails(
