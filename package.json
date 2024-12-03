@@ -10,7 +10,7 @@
     "url": "git+https://github.com/capralifecycle/load-secrets.git"
   },
   "scripts": {
-    "prepare": "husky",
+    "prepare": "npm run build && husky",
     "build": "tsc",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
