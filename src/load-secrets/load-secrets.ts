@@ -7,15 +7,15 @@ import {
   DescribeSecretCommand,
   GetSecretValueCommand,
   PutSecretValueCommand,
+  RemoveRegionsFromReplicationCommand,
+  ReplicateSecretToRegionsCommand,
+  ResourceNotFoundException,
   RestoreSecretCommand,
   SecretsManagerClient,
   TagResourceCommand,
   UntagResourceCommand,
-  ReplicateSecretToRegionsCommand,
-  RemoveRegionsFromReplicationCommand,
 } from "@aws-sdk/client-secrets-manager";
 import { GetCallerIdentityCommand, STSClient } from "@aws-sdk/client-sts";
-import { ResourceNotFoundException } from "@aws-sdk/client-secrets-manager";
 import read from "read";
 import type { CLIReporter } from "../cli/reporter";
 import { createReporter } from "../cli/reporter";
@@ -111,11 +111,10 @@ class LoadSecrets {
         );
       }
 
-      const value = await this.getInput({
+      collectedValues[key] = await this.getInput({
         prompt: "Enter value (Ctrl+C to abort): ",
         silent: this.silent,
       });
-      collectedValues[key] = value;
 
       this.reporter.log("");
     }
@@ -235,7 +234,7 @@ class LoadSecrets {
 
     let arn: string;
     let version: string;
-    let newReplicaRegions: string[] = [];
+    let newReplicaRegions: string[];
     let removedReplicaRegions: string[] = [];
 
     if (describeSecret == null) {
@@ -284,9 +283,7 @@ class LoadSecrets {
           (region) => !currentReplicaRegions.includes(region),
         ) ?? [];
       removedReplicaRegions = currentReplicaRegions
-        .filter(
-          (region): region is string => !!region && typeof region === "string",
-        )
+        .filter((region): region is string => !!region && true)
         .filter((region) => !(secret.replicaRegions || []).includes(region));
       if (newReplicaRegions.length > 0) {
         await client.send(
