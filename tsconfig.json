@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "moduleDetection": "force",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": true,
+    "sourceMap": true,
+    "verbatimModuleSyntax": false,
+    "useUnknownInCatchVariables": false,
+
+    "noEmit": false,
+    "declaration": true,
+
+    "module": "preserve",
+    "outDir": "./lib",
+
+    "lib": ["es2022"]
+  },
+  "include": ["src"],
+  "exclude": ["cdk.out", "node_modules"]
+}
