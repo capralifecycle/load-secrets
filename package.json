@@ -13,7 +13,8 @@
     "prepare": "husky",
     "build": "tsc",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@aws-sdk/client-secrets-manager": "3.699.0",
