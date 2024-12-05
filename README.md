@@ -5,7 +5,7 @@ Library for loading secrets into AWS Secrets Mananager from a configuration file
 ## Installation
 
 ```bash
-$ npm install @capraconsulting/load-secrets
+$ npm install @liflig/load-secrets
 ```
 
 ## Usage
