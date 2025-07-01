@@ -1,1 +1,1 @@
-export * as loadSecrets from "./load-secrets";
+export * as loadSecrets from "./load-secrets"
