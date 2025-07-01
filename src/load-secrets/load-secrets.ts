@@ -142,6 +142,8 @@ class LoadSecrets {
 
     const tagsToUpdate = tags.filter((expectedTag) => {
       const existing = secret.Tags!.find((it) => it.Key! === expectedTag.Key!)
+
+      // biome-ignore lint/suspicious/noDoubleEquals: Carryover from eslint
       return existing == null || existing.Value != expectedTag.Value
     })
 
