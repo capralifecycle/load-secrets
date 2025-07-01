@@ -12,31 +12,27 @@
   "scripts": {
     "prepare": "npm run build && husky",
     "build": "tsc",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
     "semantic-release": "semantic-release"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "3.839.0",
-    "@aws-sdk/client-sts": "3.839.0",
+    "@aws-sdk/client-secrets-manager": "3.840.0",
+    "@aws-sdk/client-sts": "3.840.0",
     "chalk": "5.4.1",
     "read": "4.1.0",
     "typescript": "5.8.3"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.0.6",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@eslint/js": "9.30.0",
-    "@types/node": "22.15.34",
+    "@types/node": "24.0.8",
     "@types/read": "0.0.32",
-    "eslint": "9.30.0",
-    "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-prettier": "5.5.1",
     "husky": "9.1.7",
-    "semantic-release": "24.2.5",
-    "typescript-eslint": "8.35.0"
+    "semantic-release": "24.2.6"
   }
 }

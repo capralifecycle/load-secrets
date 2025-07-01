@@ -1,19 +1,19 @@
 export interface BaseSecret {
-  name: string;
-  description?: string;
+  name: string
+  description?: string
   /**
    * A list of regions to create read replicas
    * of the secret in.
    */
-  replicaRegions?: string[];
+  replicaRegions?: string[]
 }
 
-export type JsonSecretSimpleField = string;
+export type JsonSecretSimpleField = string
 
 export interface JsonSecretDescribedField {
-  key: string;
-  description?: string;
-  example?: string;
+  key: string
+  description?: string
+  example?: string
 }
 
 /**
@@ -21,20 +21,20 @@ export interface JsonSecretDescribedField {
  * and do not require JSON formating.
  */
 export interface StringSecret extends BaseSecret {
-  type: "string";
+  type: "string"
 }
 
 export interface JsonSecret extends BaseSecret {
-  type: "json";
-  fields: (JsonSecretSimpleField | JsonSecretDescribedField)[];
+  type: "json"
+  fields: (JsonSecretSimpleField | JsonSecretDescribedField)[]
 }
 
-export type Secret = JsonSecret | StringSecret;
+export type Secret = JsonSecret | StringSecret
 
 export interface SecretGroup {
-  accountId: string;
-  region: string;
-  description: string;
-  namePrefix: string;
-  secrets: Secret[];
+  accountId: string
+  region: string
+  description: string
+  namePrefix: string
+  secrets: Secret[]
 }

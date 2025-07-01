@@ -7,3 +7,7 @@ build:
 	npm install
 	npm run build
 	npm run lint
+
+.PHONY: lint
+lint:
+	npm run lint
