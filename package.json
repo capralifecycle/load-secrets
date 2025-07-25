@@ -31,7 +31,7 @@
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
     "@types/node": "24.1.0",
-    "@types/read": "0.0.32",
+    "@types/read": "3.0.0",
     "husky": "9.1.7",
     "semantic-release": "24.2.7"
   }
