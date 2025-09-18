@@ -30,7 +30,7 @@
     "@biomejs/biome": "2.2.4",
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@types/node": "24.4.0",
+    "@types/node": "24.5.0",
     "@types/read": "3.0.0",
     "husky": "9.1.7",
     "semantic-release": "24.2.8"
