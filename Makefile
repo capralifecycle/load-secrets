@@ -11,3 +11,11 @@ build:
 .PHONY: lint
 lint:
 	npm run lint
+
+.PHONY: lint-fix
+lint-fix:
+	npm run lint:fix
+
+.PHONY: lint-fix-unsafe
+lint-fix-unsafe:
+	npm run lint:fix-unsafe
