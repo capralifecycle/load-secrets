@@ -390,7 +390,7 @@ class LoadSecrets {
         return false
       }
 
-      index = Number.parseInt(answer)
+      index = Number.parseInt(answer, 10)
       if (!secrets[index]) {
         throw new Error()
       }
