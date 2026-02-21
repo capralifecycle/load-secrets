@@ -22,8 +22,8 @@
     "provenance": true
   },
   "dependencies": {
-    "@aws-sdk/client-secrets-manager": "3.992.0",
-    "@aws-sdk/client-sts": "3.992.0",
+    "@aws-sdk/client-secrets-manager": "3.993.0",
+    "@aws-sdk/client-sts": "3.993.0",
     "chalk": "5.6.2",
     "read": "5.0.1",
     "typescript": "5.9.3"
