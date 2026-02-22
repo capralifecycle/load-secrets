@@ -30,8 +30,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.2",
-    "@commitlint/cli": "20.4.1",
-    "@commitlint/config-conventional": "20.4.1",
+    "@commitlint/cli": "20.4.2",
+    "@commitlint/config-conventional": "20.4.2",
     "@types/node": "24.10.13",
     "@types/read": "3.0.0",
     "husky": "9.1.7",
