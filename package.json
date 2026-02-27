@@ -15,7 +15,11 @@
     "lint": "biome check",
     "lint:fix": "biome check --write",
     "lint:fix-unsafe": "biome check --write --unsafe",
-    "semantic-release": "semantic-release"
+    "fmt": "biome format --write",
+    "fmt:check": "biome format",
+    "semantic-release": "semantic-release",
+    "upgrade-dependencies": "ncu --upgrade --install always --format group --reject @types/node"
+
   },
   "publishConfig": {
     "access": "public",

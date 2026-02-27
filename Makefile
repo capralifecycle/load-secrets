@@ -2,11 +2,18 @@
 all: build
 
 .PHONY: build
-build:
-	@echo "Building..."
+build: install build fmt lint-fix
+
+.PHONY: ci
+ci: install build lint fmt-check
+
+.PHONY: install
+install:
+ifeq ($(CI),true)
+	npm ci
+else
 	npm install
-	npm run build
-	npm run lint
+endif
 
 .PHONY: lint
 lint:
@@ -19,3 +26,17 @@ lint-fix:
 .PHONY: lint-fix-unsafe
 lint-fix-unsafe:
 	npm run lint:fix-unsafe
+
+.PHONY: fmt
+fmt:
+	npm run fmt
+
+.PHONY: fmt-check
+fmt-check:
+	npm run fmt:check
+
+.PHONY: upgrade-deps
+upgrade-deps:
+	npm run upgrade-deps
+
+
