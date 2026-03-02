@@ -37,7 +37,7 @@
     "@commitlint/config-conventional": "20.4.2",
     "@types/node": "24.10.15",
     "husky": "9.1.7",
-    "npm-check-updates": "19.6.2",
+    "npm-check-updates": "19.6.3",
     "semantic-release": "25.0.3"
   }
 }
