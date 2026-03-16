@@ -2,41 +2,25 @@
 all: build
 
 .PHONY: build
-build: install build fmt lint-fix
+build: install
+	bun run build
+	bun run lint:fix
+	bun run fmt
 
 .PHONY: ci
-ci: install build lint fmt-check
+ci: install
+	bun run build
+	bun run lint
+	bun run fmt:check
 
 .PHONY: install
 install:
 ifeq ($(CI),true)
-	npm ci
+	bun ci
 else
-	npm install
+	bun install
 endif
-
-.PHONY: lint
-lint:
-	npm run lint
-
-.PHONY: lint-fix
-lint-fix:
-	npm run lint:fix
-
-.PHONY: lint-fix-unsafe
-lint-fix-unsafe:
-	npm run lint:fix-unsafe
-
-.PHONY: fmt
-fmt:
-	npm run fmt
-
-.PHONY: fmt-check
-fmt-check:
-	npm run fmt:check
 
 .PHONY: upgrade-deps
 upgrade-deps:
-	npm run upgrade-deps
-
-
+	bun run upgrade-deps

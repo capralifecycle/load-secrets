@@ -10,7 +10,7 @@
     "url": "git+https://github.com/capralifecycle/load-secrets.git"
   },
   "scripts": {
-    "prepare": "npm run build && husky",
+    "prepare": "bun run build && husky",
     "build": "tsc",
     "lint": "biome check",
     "lint:fix": "biome check --write",
@@ -18,7 +18,7 @@
     "fmt": "biome format --write",
     "fmt:check": "biome format",
     "semantic-release": "semantic-release",
-    "upgrade-deps": "ncu --upgrade --install always --format group --reject @types/node"
+    "upgrade-deps": "bun update"
   },
   "publishConfig": {
     "access": "public",
@@ -37,7 +37,6 @@
     "@commitlint/config-conventional": "20.4.4",
     "@types/node": "24.12.0",
     "husky": "9.1.7",
-    "npm-check-updates": "19.6.3",
     "semantic-release": "25.0.3"
   }
 }
