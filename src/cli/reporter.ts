@@ -1,7 +1,29 @@
 import readline from "node:readline"
-import chalk from "chalk"
+import { styleText } from "node:util"
 
 const CLEAR_WHOLE_LINE = 0
+
+type StyleFn = (text: string) => string
+
+export interface Format {
+  red: StyleFn
+  yellow: StyleFn
+  blue: StyleFn
+  greenBright: StyleFn
+  magentaBright: StyleFn
+  yellowBright: StyleFn
+  redBright: StyleFn
+}
+
+const format: Format = {
+  red: (text) => styleText("red", text),
+  yellow: (text) => styleText("yellow", text),
+  blue: (text) => styleText("blue", text),
+  greenBright: (text) => styleText("greenBright", text),
+  magentaBright: (text) => styleText("magentaBright", text),
+  yellowBright: (text) => styleText("yellowBright", text),
+  redBright: (text) => styleText("redBright", text),
+}
 
 export function createReporter(argv: Record<string, unknown>): CLIReporter {
   return new CLIReporter({
@@ -30,7 +52,7 @@ export class CLIReporter {
   public stderr = process.stderr
   public nonInteractive: boolean
   public isVerbose: boolean
-  public format: typeof chalk = chalk
+  public format: Format = format
 
   public error(msg: string): void {
     clearLine(this.stderr)
