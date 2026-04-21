@@ -16,9 +16,11 @@
     "declaration": true,
 
     "module": "preserve",
+    "rootDir": "./src",
     "outDir": "./lib",
 
-    "lib": ["es2022"]
+    "lib": ["es2022"],
+    "types": ["node"]
   },
   "include": ["src"],
   "exclude": ["cdk.out", "node_modules"]
